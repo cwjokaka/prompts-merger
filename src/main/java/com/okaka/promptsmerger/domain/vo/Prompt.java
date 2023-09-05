@@ -1,2 +1,7 @@
-package com.okaka.promptsmerger.domain.vo;public interface Prompt {
+package com.okaka.promptsmerger.domain.vo;
+
+public interface Prompt {
+
+    String toPromptString();
+
 }
