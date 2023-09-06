@@ -1,4 +1,4 @@
-package com.okaka.promptsmerger;
+package com.okaka.pm;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

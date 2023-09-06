@@ -1,4 +1,4 @@
-package com.okaka.promptsmerger;
+package com.okaka.pm;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
