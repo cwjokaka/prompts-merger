@@ -1,6 +1,6 @@
 package com.okaka.pm.domain.vo;
 
-import com.okaka.pm.domain.prompt.vo.*;
+import com.okaka.pm.domain.prompt.entity.vo.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,7 +1,7 @@
 package com.okaka.pm.domain.prompt.entity;
 
 import com.okaka.pm.Infrastructure.util.PMAssert;
-import com.okaka.pm.domain.prompt.vo.Prompt;
+import com.okaka.pm.domain.prompt.entity.vo.Prompt;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;

@@ -1,4 +1,4 @@
-package com.okaka.pm.domain.prompt.vo;
+package com.okaka.pm.domain.prompt.entity.vo;
 
 public interface Prompt {
 

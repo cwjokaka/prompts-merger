@@ -1,4 +1,4 @@
-package com.okaka.pm.domain.prompt.aggregate;
+package com.okaka.pm.domain.prompt.entity.aggregate;
 
 /**
  * @author okaka

@@ -1,4 +1,4 @@
-package com.okaka.pm.domain.prompt.vo;
+package com.okaka.pm.domain.prompt.entity.vo;
 
 /**
  * 花括号提示词
