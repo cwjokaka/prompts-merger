@@ -8,6 +8,6 @@ public interface Prompt {
      * 获取提示词名称
      * @return 提示词名称
      */
-    String getPromptName();
+    String getPromptContent();
 
 }

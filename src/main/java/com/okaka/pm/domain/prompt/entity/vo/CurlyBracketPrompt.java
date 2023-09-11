@@ -7,8 +7,12 @@ package com.okaka.pm.domain.prompt.entity.vo;
  */
 public class CurlyBracketPrompt extends BracketPrompt {
 
-    public CurlyBracketPrompt(String promptName, int nestingTimes) {
-        super(promptName, nestingTimes);
+    public CurlyBracketPrompt(String... promptNames) {
+        super(promptNames);
+    }
+
+    public CurlyBracketPrompt(int nestingTimes, String... promptName) {
+        super(nestingTimes, promptName);
     }
 
     @Override

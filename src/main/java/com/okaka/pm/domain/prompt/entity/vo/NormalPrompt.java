@@ -17,7 +17,7 @@ public class NormalPrompt extends AbstractPrompt {
 
     @Override
     public String toPromptString() {
-        return super.getPromptName();
+        return super.getPromptContent();
     }
 
 }

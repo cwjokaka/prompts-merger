@@ -11,8 +11,8 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class SquareBracketPrompt extends BracketPrompt {
 
-    public SquareBracketPrompt(String promptName, int nestingTimes) {
-        super(promptName, nestingTimes);
+    public SquareBracketPrompt(int nestingTimes, String... promptNames) {
+        super(nestingTimes, promptNames);
     }
 
     @Override

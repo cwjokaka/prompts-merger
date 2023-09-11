@@ -14,12 +14,12 @@ public abstract class BracketPrompt extends AbstractPrompt {
      */
     final int nestingTimes;
 
-    public BracketPrompt(String promptName) {
-        this(promptName, 1);
+    public BracketPrompt(String... promptNames) {
+        this(1, promptNames);
     }
 
-    public BracketPrompt(String promptName, int nestingTimes) {
-        super(promptName);
+    public BracketPrompt(int nestingTimes, String... promptNames) {
+        super(promptNames);
         PMAssert.assertTrue(nestingTimes >= 1, "括号嵌套次数不能小于1");
         this.nestingTimes = nestingTimes;
     }
@@ -28,7 +28,7 @@ public abstract class BracketPrompt extends AbstractPrompt {
     public String toPromptString() {
         StringBuilder sb = new StringBuilder();
         sb.append(leftBracket().repeat(Math.max(0, nestingTimes)));
-        sb.append(getPromptName());
+        sb.append(getPromptContent());
         sb.append(rightBracket().repeat(Math.max(0, nestingTimes)));
         return sb.toString();
     }

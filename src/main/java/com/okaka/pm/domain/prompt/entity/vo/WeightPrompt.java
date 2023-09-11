@@ -15,8 +15,8 @@ public class WeightPrompt extends BracketPrompt {
 
     final BigDecimal weight;
 
-    public WeightPrompt(String promptName, BigDecimal weight) {
-        super(promptName, 1);
+    public WeightPrompt(BigDecimal weight, String... promptNames) {
+        super(1, promptNames);
         this.weight = weight;
     }
 
@@ -28,11 +28,6 @@ public class WeightPrompt extends BracketPrompt {
     @Override
     protected String rightBracket() {
         return ")";
-    }
-
-    @Override
-    public String toPromptString() {
-        return super.toPromptString();
     }
 
 }

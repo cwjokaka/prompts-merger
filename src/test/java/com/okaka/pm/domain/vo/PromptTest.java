@@ -14,49 +14,47 @@ public class PromptTest {
     public void testNormalPrompt() {
         NormalPrompt prompt = new NormalPrompt("white flower");
         Assertions.assertEquals("white flower", prompt.toPromptString());
-        Assertions.assertEquals("white flower", prompt.getPromptName());
     }
 
     @Test
     public void testCurlyBracketPrompt() {
-        Prompt prompt = new CurlyBracketPrompt("white flower", 1);
+        Prompt prompt = new CurlyBracketPrompt(1, "white flower");
         Assertions.assertEquals("{white flower}", prompt.toPromptString());
-        Assertions.assertEquals("white flower", prompt.getPromptName());
     }
 
     @Test
     public void testManyCurlyBracketPrompt() {
-        Prompt prompt = new CurlyBracketPrompt("white flower", 3);
+        Prompt prompt = new CurlyBracketPrompt(3, "white flower");
         Assertions.assertEquals("{{{white flower}}}", prompt.toPromptString());
-        Assertions.assertEquals("white flower", prompt.getPromptName());
     }
 
     @Test
     public void testOpenBracketPrompt() {
-        Prompt prompt = new OpenBracketPrompt("white flower", 1);
+        Prompt prompt = new OpenBracketPrompt(1, "white flower");
         Assertions.assertEquals("(white flower)", prompt.toPromptString());
-        Assertions.assertEquals("white flower", prompt.getPromptName());
     }
 
     @Test
     public void testManyOpenBracketPrompt() {
-        Prompt prompt = new OpenBracketPrompt("white flower", 3);
+        Prompt prompt = new OpenBracketPrompt(3, "white flower");
         Assertions.assertEquals("(((white flower)))", prompt.toPromptString());
-        Assertions.assertEquals("white flower", prompt.getPromptName());
     }
 
     @Test
     public void testSquareBracketPrompt() {
-        Prompt prompt = new SquareBracketPrompt("white flower", 1);
+        Prompt prompt = new SquareBracketPrompt(1, "white flower");
         Assertions.assertEquals("[white flower]", prompt.toPromptString());
-        Assertions.assertEquals("white flower", prompt.getPromptName());
     }
 
     @Test
     public void testManySquareBracketPrompt() {
-        Prompt prompt = new SquareBracketPrompt("white flower", 3);
+        Prompt prompt = new SquareBracketPrompt(3, "white flower");
         Assertions.assertEquals("[[[white flower]]]", prompt.toPromptString());
-        Assertions.assertEquals("white flower", prompt.getPromptName());
+    }
+    @Test
+    public void testManySquareBracketPrompts() {
+        Prompt prompt = new SquareBracketPrompt(3, "white flower", "black flower");
+        Assertions.assertEquals("[[[white flower, black flower]]]", prompt.toPromptString());
     }
 
 }
