@@ -44,7 +44,7 @@ dependencies {
   testCompileOnly("org.projectlombok:lombok:1.18.28");
   annotationProcessor("org.projectlombok:lombok:1.18.28");
 
-  implementation ("cn.hutool:hutool-all:5.7.16");
+  implementation ("cn.hutool:hutool-all:5.8.11");
   implementation ("com.alibaba:fastjson:1.2.83");
 
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")

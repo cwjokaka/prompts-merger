@@ -14,10 +14,14 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public abstract class AbstractPrompt implements Prompt {
 
-    final List<String> promptNames;
+    protected final List<String> promptNames;
 
     public AbstractPrompt(String... promptNames) {
-        this.promptNames = Arrays.asList(promptNames);
+        ArrayList<String> list = new ArrayList<>();
+        for (String promptName : promptNames) {
+            list.add(promptName.trim());
+        }
+        this.promptNames = list;
     }
 
     @Override
@@ -25,4 +29,8 @@ public abstract class AbstractPrompt implements Prompt {
         return String.join(", ", promptNames);
     }
 
+    @Override
+    public String toString() {
+        return toPromptString();
+    }
 }

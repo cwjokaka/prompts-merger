@@ -1,4 +1,4 @@
-package com.okaka.pm.domain.vo;
+package com.okaka.pm.domain.prompt.entity.vo;
 
 import com.okaka.pm.domain.prompt.entity.vo.*;
 import org.junit.jupiter.api.Assertions;

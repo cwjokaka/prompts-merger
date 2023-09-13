@@ -5,7 +5,7 @@ module com.okaka.pm {
     requires org.kordamp.bootstrapfx.core;
     requires static lombok;
 //    requires fastjson;
-//    requires hutool.all;
+    requires hutool.all;
 
     opens com.okaka.pm to javafx.fxml;
     exports com.okaka.pm;
