@@ -1,6 +1,5 @@
 package com.okaka.pm.Infrastructure.util;
 
-import cn.hutool.core.util.StrUtil;
 import com.okaka.pm.domain.prompt.entity.aggregate.PromptAggregate;
 import com.okaka.pm.domain.prompt.entity.vo.*;
 
@@ -60,6 +59,10 @@ public class PromptParser {
             }
         }
 
+        if (!bracketStack.isEmpty()) {
+            throw new RuntimeException("语法错误:'" + bracketStack.peek() + "'没有闭合");
+        }
+
         return PromptAggregate.builder()
                 .id(UUID.randomUUID().toString())
                 .prompts(promptsCache)
@@ -115,6 +118,10 @@ public class PromptParser {
     }
 
     private void processLeftBracket(char leftBracket) {
+        Character preBracket = bracketStack.peek();
+        if (preBracket != null && leftBracket != preBracket) {
+            throw new RuntimeException("嵌套了不同的括号:" + preBracket + leftBracket);
+        }
         switch (leftBracket) {
             case '<' -> processingPromptType = ProcessingPromptType.ANGLE_BRACKET_PROMPT;
             case '(' -> processingPromptType = ProcessingPromptType.OPEN_BRACKET_PROMPT;
@@ -147,7 +154,7 @@ public class PromptParser {
 
     private void createNormalPrompt() {
         String promptContent = processingPromptStr.toString();
-        if (StrUtil.isEmpty(promptContent)) {
+        if (promptContent.isEmpty()) {
             return;
         }
         NormalPrompt normalPrompt = new NormalPrompt(promptContent);
@@ -156,7 +163,7 @@ public class PromptParser {
 
     private void createBracketPrompt() {
         String promptContent = processingPromptStr.toString();
-        if (StrUtil.isEmpty(promptContent)) {
+        if (promptContent.isEmpty()) {
             return;
         }
         String[] promptNames = promptContent.split(",");

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextArea?>
+<?import com.jfoenix.controls.JFXButton?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.okaka.pm.interfaces.controller.TextExtractController"
+      stylesheets="@../style.css">
+  <padding>
+    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+  </padding>
+  <TextArea fx:id="promptTextInput"/>
+  <JFXButton text="提取" onAction="#onCommitExtract"/>
+</VBox>

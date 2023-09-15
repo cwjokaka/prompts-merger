@@ -1,0 +1,7 @@
+.label{
+    -fx-text-fill: red;
+}
+
+.jfx-button:focused{
+    -fx-background-color: white;
+}

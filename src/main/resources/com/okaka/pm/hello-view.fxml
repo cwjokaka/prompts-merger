@@ -14,24 +14,41 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.GridPane?>
-<BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.okaka.pm.interfaces.controller.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="0" right="20.0" top="20.0"/>
-  </padding>
-  <top>
-    <HBox style="-fx-background-color: #222222;"/>
-  </top>
-  <left>
-    <VBox fx:id="leftBox" style="-fx-width: 100px; -fx-background-color: #000000;">
-      <ToggleButton text="混合"/>
-      <ToggleButton text="todo"/>
-      <ToggleButton text="todo"/>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.okaka.pm.interfaces.controller.HelloController"
+      stylesheets="@style.css">
+  <MenuBar prefHeight="26.0" prefWidth="1081.0" VBox.vgrow="ALWAYS">
+    <Menu mnemonicParsing="false" text="设置">
+      <MenuItem fx:id="proxySetupBtn" mnemonicParsing="false" text="代理"/>
+      <MenuItem fx:id="proxySetupBtn2" mnemonicParsing="false" text="工作目录"/>
+    </Menu>
+    <Menu mnemonicParsing="false" text="关于">
+      <MenuItem mnemonicParsing="false" onAction="#onHelloButtonClick" text="关于"/>
+    </Menu>
+  </MenuBar>
+  <HBox>
+    <VBox fx:id="buttonGroup" VBox.vgrow="ALWAYS" minWidth="100" maxWidth="100">
+      <children>
+        <JFXButton accessibleText="textExtract" prefHeight="43.0" prefWidth="127.0" text="文本提取" />
+        <JFXButton accessibleText="分组" prefHeight="43.0" prefWidth="127.0" text="分组" />
+        <JFXButton accessibleText="混合" prefHeight="43.0" prefWidth="127.0" text="混合" />
+        <JFXButton accessibleText="分类管理" prefHeight="43.0" prefWidth="127.0" text="混合" />
+      </children>
     </VBox>
-  </left>
-  <center>
-    <TextField fx:id="inputArea"/>
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" styleClass="btn-danger" onAction="#onHelloButtonClick"/>
-  </center>
-</BorderPane>
+    <Separator orientation="VERTICAL" prefHeight="645.0" VBox.vgrow="ALWAYS" />
+    <VBox HBox.hgrow="ALWAYS">
+      <TabPane fx:id="tabPane" minHeight="50" >
+        <Tab text="首页"/>
+      </TabPane>
+<!--      <AnchorPane fx:id="content" minHeight="0.0" minWidth="0.0" prefHeight="647.0" prefWidth="250.0" HBox.hgrow="ALWAYS" />-->
+    </VBox>
+  </HBox>
+</VBox>

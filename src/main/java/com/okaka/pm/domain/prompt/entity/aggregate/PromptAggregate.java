@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author okaka
@@ -15,11 +16,20 @@ import java.util.List;
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Getter
-public class PromptAggregate {
+public class PromptAggregate implements Prompt {
 
     String id;
 
     List<Prompt> prompts;
 
 
+    @Override
+    public String toPromptString() {
+        return prompts.stream().map(Prompt::toPromptString).collect(Collectors.joining(", "));
+    }
+
+    @Override
+    public String getPromptContent() {
+        return null;
+    }
 }

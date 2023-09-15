@@ -18,7 +18,40 @@ public class PromptParserTest {
         PromptAggregate promptAggregate = promptParser.parse(text);
         System.out.println(promptAggregate.getId());
         System.out.println(promptAggregate.getPrompts());
-//        Assertions.assertEquals("white flower", prompt.toPromptString());
+        Assertions.assertEquals("(flower), [black], {day}, (black flower, tower), [knife, desk], (((east, hail))), (food:1.3), (hot dog, apple, banana:1.2), <kitty>, <miky:0.6>",
+                promptAggregate.toPromptString());
+
+    }
+
+    @Test
+    public void testWrongPrompt() {
+        String text = "[(flower), [black], {day},(black flower, tower), [knife, desk], (((east,hail))), (food:1.3),(hot dog, apple, banana:1.2), <kitty>,<miky:0.6>";
+        PromptParser promptParser = new PromptParser();
+        PromptAggregate promptAggregate = promptParser.parse(text);
+        System.out.println(promptAggregate.getPrompts());
+    }
+
+    @Test
+    public void testWrongLeftBracket() {
+        String text = "[(flower), <lora>";
+        PromptParser promptParser = new PromptParser();
+        RuntimeException runtimeException = Assertions.assertThrows(RuntimeException.class, () -> {
+            PromptAggregate promptAggregate = promptParser.parse(text);
+            System.out.println(promptAggregate.toPromptString());
+        });
+        System.out.println(runtimeException.getMessage());
+
+    }
+
+    @Test
+    public void testWrongRightBracket() {
+        String text = "(flower)], <lora>";
+        PromptParser promptParser = new PromptParser();
+        RuntimeException runtimeException = Assertions.assertThrows(RuntimeException.class, () -> {
+            PromptAggregate promptAggregate = promptParser.parse(text);
+            System.out.println(promptAggregate.toPromptString());
+        });
+        System.out.println(runtimeException.getMessage());
     }
 
 
