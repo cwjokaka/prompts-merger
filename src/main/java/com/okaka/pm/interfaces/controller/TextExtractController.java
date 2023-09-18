@@ -6,7 +6,6 @@ import com.okaka.pm.Infrastructure.config.ApplicationContext;
 import com.okaka.pm.Infrastructure.util.PromptParser;
 import com.okaka.pm.domain.prompt.entity.aggregate.PromptAggregate;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Modality;
@@ -37,14 +36,15 @@ public class TextExtractController {
         try {
             PromptAggregate parse = promptParser.parse(text);
         } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText(e.getMessage());
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setContentText(e.getMessage());
+//            alert.show();
+            JFXAlert<Void> alert = new JFXAlert<>(ApplicationContext.getStage());
+            alert.setOverlayClose(true);
+            alert.setAnimation(JFXAlertAnimation.CENTER_ANIMATION);
+            alert.setContent(new Label(e.getMessage()));
+            alert.initModality(Modality.NONE);
             alert.show();
-//            Alert<Void> alert1 = new Alert<>(ApplicationContext.getStage());
-//            alert.setOverlayClose(true);
-//            alert.setAnimation(JFXAlertAnimation.CENTER_ANIMATION);
-//            alert.setContent(new Label(e.getMessage()));
-//            alert.initModality(Modality.NONE);
         }
     }
 

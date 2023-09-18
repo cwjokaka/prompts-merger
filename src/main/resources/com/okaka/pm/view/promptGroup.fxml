@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTreeView?>
+<?import com.jfoenix.controls.JFXButton?>
+<HBox fx:id="root" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.okaka.pm.interfaces.controller.PromptGroupController"
+      prefHeight="400.0" prefWidth="600.0">
+    <JFXTreeView fx:id="groupTreeView">
+    </JFXTreeView>
+
+</HBox>

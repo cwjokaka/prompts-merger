@@ -4,6 +4,7 @@ module com.okaka.pm {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires com.jfoenix;
+
     requires static lombok;
 //    requires fastjson;
     requires cn.hutool;

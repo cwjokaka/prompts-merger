@@ -38,16 +38,16 @@
     <VBox fx:id="buttonGroup" VBox.vgrow="ALWAYS" minWidth="100" maxWidth="100">
       <children>
         <JFXButton accessibleText="textExtract" prefHeight="43.0" prefWidth="127.0" text="文本提取" />
-        <JFXButton accessibleText="分组" prefHeight="43.0" prefWidth="127.0" text="分组" />
+        <JFXButton accessibleText="promptGroup" prefHeight="43.0" prefWidth="127.0" text="分组" />
         <JFXButton accessibleText="混合" prefHeight="43.0" prefWidth="127.0" text="混合" />
         <JFXButton accessibleText="分类管理" prefHeight="43.0" prefWidth="127.0" text="混合" />
       </children>
     </VBox>
     <Separator orientation="VERTICAL" prefHeight="645.0" VBox.vgrow="ALWAYS" />
     <VBox HBox.hgrow="ALWAYS">
-      <TabPane fx:id="tabPane" minHeight="50" >
+      <JFXTabPane fx:id="tabPane" minHeight="50" tabClosingPolicy="ALL_TABS">
         <Tab text="首页"/>
-      </TabPane>
+      </JFXTabPane>
 <!--      <AnchorPane fx:id="content" minHeight="0.0" minWidth="0.0" prefHeight="647.0" prefWidth="250.0" HBox.hgrow="ALWAYS" />-->
     </VBox>
   </HBox>

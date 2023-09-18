@@ -1,6 +1,7 @@
 package com.okaka.pm.interfaces.controller;
 
 import cn.hutool.core.collection.CollectionUtil;
+import com.jfoenix.controls.JFXTabPane;
 import com.okaka.pm.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +17,7 @@ import java.util.stream.Collectors;
 public class HelloController {
 
     @FXML
-    private TabPane tabPane;
+    private JFXTabPane tabPane;
 //    @FXML
 //    private AnchorPane content;
     @FXML
@@ -58,6 +59,7 @@ public class HelloController {
             Node contentPage = FXMLLoader.load(HelloApplication.class.getResource("view/" + jumpPage + ".fxml"));
 //            this.content.getChildren().add(contentPage);
             Tab tab = new Tab(jumpPage, contentPage);
+            tab.setClosable(true);
             tabPane.getTabs().add(tab);
             tabPane.getSelectionModel().select(tab);
         } catch (Exception e) {
