@@ -11,6 +11,8 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
+import static com.okaka.pm.Infrastructure.config.ApplicationConstant.ICON_WINDOW;
+
 public class HelloApplication extends Application {
 
     @Override
@@ -18,7 +20,7 @@ public class HelloApplication extends Application {
         initStage(stage);
         ApplicationContext.setStage(stage);
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 500, 350);
         stage.setScene(scene);
         stage.show();
     }
@@ -32,7 +34,7 @@ public class HelloApplication extends Application {
         // 标题
         stage.setTitle("PromptMerger");
         // 图标
-        stage.getIcons().add(new Image(HelloApplication.class.getResource("icon/winIcon.png").toString()));
+        stage.getIcons().add(new Image(HelloApplication.class.getResource(ICON_WINDOW).toString()));
         // 窗体不可拉伸、缩小
 //        stage.setResizable(false);
         // 窗体关闭回调

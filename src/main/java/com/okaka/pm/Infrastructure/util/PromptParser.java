@@ -54,8 +54,7 @@ public class PromptParser {
                     processRightBracket(c);
                     break;
                 default:
-                    parserMode = ParserMode.CREATING_PROMPT;
-                    processingPromptStr.append(c);
+                    processNormalChar(c);
             }
         }
 
@@ -84,6 +83,15 @@ public class PromptParser {
 
     private boolean isFinalBracket() {
         return bracketStack.isEmpty();
+    }
+
+    private void processNormalChar(char c) {
+        parserMode = ParserMode.CREATING_PROMPT;
+        if (processingPromptType == ProcessingPromptType.NONE) {
+            processingPromptType = ProcessingPromptType.NORMAL_PROMPT;
+        }
+        processingPromptStr.append(c);
+
     }
 
     private void processColon() {

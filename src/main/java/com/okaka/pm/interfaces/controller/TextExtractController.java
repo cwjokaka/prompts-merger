@@ -35,6 +35,7 @@ public class TextExtractController {
         String text = promptTextInput.getText();
         try {
             PromptAggregate parse = promptParser.parse(text);
+            System.out.println(parse);
         } catch (Exception e) {
 //            Alert alert = new Alert(Alert.AlertType.ERROR);
 //            alert.setContentText(e.getMessage());
